@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "Fuck you ILBE",
+	"description": "ILBE words filter",
+	"author": "Warhead",
+	"homepage_url": "http://naoki.pe.kr/ihateilbe",
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"version": "0.1",
+	
+	"permissions": [ 
+		"tabs", "http://*/*", "https://*/*"
+	],
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts": 
+	[
+	{
+		"matches": ["<all_urls>"],
+		"js":["ihateilbe.js", "js/jquery.min.js"],
+		"run_at": "document_end"
+	}
+	]
+
+}

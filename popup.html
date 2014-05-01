@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Doppio Coffee Factory</title>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		
+		<script src="js/jquery.min.js"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<script type="text/javascript">
+
+				$(document).ready(function(){
+					/*
+					$.ajax({
+						url: 'http://naoki.pe.kr/test',
+						dataType: 'jsonp',
+						success: function(dataWeGotViaJsonp){
+							var text = '';
+							var len = dataWeGotViaJsonp.length;
+							for(var i=0;i<len;i++){
+								twitterEntry = dataWeGotViaJsonp[i];
+								text += '<p><img src = "' + twitterEntry.user.profile_image_url_https +'"/>' + twitterEntry['text'] + '</p>'
+							}
+							$('#Feed').html(text);
+						}
+					});
+					*/
+					
+					$("#addWord").click(function(){
+						//alert("addWord");
+						//dialog_show($("[data-hide]"),'<strong>알림!</strong> 등록 기능은 보안 강화 후 활상화 될 예정입니다.');
+						$('#myModal').modal('show')
+					});
+
+					$("[data-hide]").click(function(){
+						$(this).closest("." + $(this).attr("data-hide")).fadeOut('fast');
+					});
+				});
+
+// 메시지 팝업
+function dialog_show(obj,msg) {
+	$("#alertMsg").html(msg);
+	$(obj).closest("." + $(obj).attr("data-hide")).show();
+}
+
+		</script>
+
+		<style type="text/css">
+			body {
+				background-color: #F1F1F1; 
+				font-size: 1.2em;
+				padding: 0px;
+				margin: 0px;
+			}
+			DIV#mainWrap {
+				width: 300px;
+				height: 400px;
+				background-color: #FFF;
+			}
+			DIV  > .jumbotron {
+				margin: 5px;
+				padding: 5px;
+			}
+			DIV  > .jumbotron > h1 {
+				font-size: 2em;
+				margin: 5px;
+				padding: 0px;
+			}
+			DIV  > .jumbotron > p {
+				font-size: 1em;
+				margin: 5px;
+				padding: 0px;
+			}
+			DIV > .input-group {
+				padding: 5px;
+			}
+			DIV > .alert {
+				margin: 5px;
+			}
+		</style>
+
+	</head>
+	<body>
+
+<div id="mainWrap">
+
+<!-- Nav tabs -->
+    <ul id="myTab" class="nav nav-tabs">
+      <li class="active"><a href="#home" data-toggle="tab">용어등록</a></li>
+      <li><a href="#profile" data-toggle="tab">차단리스트</a></li>
+      <li class="dropdown">
+        <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown"> HELP<b class="caret"></b></a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+          <li><a href="#dropdown1" tabindex="-1" data-toggle="tab">@fat</a></li>
+          <li><a href="#dropdown2" tabindex="-1" data-toggle="tab">@mdo</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+
+	  <div class="tab-pane fade in active" id="home">
+
+		<div class="jumbotron">
+		  <h1>ILBE bad word filtering Chrome Extension</h1>
+		  <p>서버에 등록된 일베용어를 토대로 웹사이트에서 일베용어를 필터링 하여 특정 단어로 치환 해주는 크롬 확장 프로그램입니다.</p>
+		  <p><a class="btn btn-primary btn-xs" role="button">홈페이지로</a></p>
+		</div>
+
+		<div class="input-group">
+		  <input type="text" class="form-control">
+		  <span class="input-group-btn">
+			<button class="btn btn-default" type="button" id="addWord">등록</button>
+		  </span>
+		</div><!-- /input-group -->
+
+		<div class="alert alert-failed alert-dismissable fade in" id="addAlert" hidden="hidden">
+			<button type="button" class="close" data-hide="alert">&times;</button>
+			<p id="alertMsg"><strong>Warning!</strong> Better check yourself, you're not looking too good.</p>
+		</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+
+	</div>
+  </div>
+</div>
+
+	</div>
+
+      <div class="tab-pane fade" id="profile">
+        <p>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">등록된 일베용어 리스트</div>
+  <div class="panel-body">
+    <p>서버에 사용자들이 입력 해주신 일베용어 리스트입니다.</p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+	<tr>
+		<td>test1</td>
+		<td>test2</td>
+		<td>test3</td>
+	</tr>
+	<tr>
+		<td>test1</td>
+		<td>test2</td>
+		<td>test3</td>
+	</tr>
+	<tr>
+		<td>test1</td>
+		<td>test2</td>
+		<td>test3</td>
+	</tr>
+  </table>
+</div>
+
+<ul class="pager">
+  <li class="previous"><a href="#">&larr; Older</a></li>
+  <li class="next"><a href="#">Newer &rarr;</a></li>
+</ul>
+
+		</p>
+      </div>
+      <div class="tab-pane fade" id="dropdown1">
+        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+      </div>
+      <div class="tab-pane fade" id="dropdown2">
+        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+      </div>
+    </div>
+
+	<div id="Feed"></div>
+</div>
+
+
+	</body>
+</html>
